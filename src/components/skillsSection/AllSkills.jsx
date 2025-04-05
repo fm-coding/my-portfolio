@@ -2,9 +2,9 @@ import SingleSkill from "./SingleSkill";
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
-import { SiTypescript } from "react-icons/si";
+import { FaBootstrap } from "react-icons/fa6";
 import { FaReact } from "react-icons/fa";
-import { SiRedux } from "react-icons/si";
+import { FaJava } from "react-icons/fa6";
 import { SiNextdotjs } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { motion } from "framer-motion";
@@ -24,24 +24,24 @@ const skills = [
     icon: IoLogoJavascript,
   },
   {
-    skill: "TypeScript",
-    icon: SiTypescript,
+    skill: "TailwindCSS",
+    icon: RiTailwindCssFill,
   },
   {
     skill: "ReactJS",
     icon: FaReact,
   },
   {
-    skill: "Redux",
-    icon: SiRedux,
+    skill: "Java",
+    icon: FaJava,
   },
   {
     skill: "NextJS",
     icon: SiNextdotjs,
   },
   {
-    skill: "TailwindCSS",
-    icon: RiTailwindCssFill,
+    skill: "Bootstrap",
+    icon: FaBootstrap,
   },
 ];
 
