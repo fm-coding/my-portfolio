@@ -6,5 +6,5 @@ export default defineConfig({
   server: {
     open: true,
   },
-  base:"/faisal-portfolio",
+  base:"/my-portfolio",
 });
