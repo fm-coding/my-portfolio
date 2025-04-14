@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    open: true, // Automatically opens browser on startup
+    open: true,
   },
+  base:"/faisal-portfolio",
 });
