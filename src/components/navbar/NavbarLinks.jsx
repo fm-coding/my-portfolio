@@ -1,32 +1,20 @@
-import { Link } from "react-scroll";
+import React from "react";
 
-const links = [
-  { link: "About Me", section: "about" },
-  { link: "Skills", section: "skills" },
-  { link: "Experience", section: "experience" },
-  { link: "Contact", section: "contact" },
-];
+const NavbarLinks = ({ onLinkClick }) => {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    if (onLinkClick) onLinkClick(); // Close mobile menu after click
+  };
 
-const NavbarLinks = () => {
   return (
-    <ul className="flex lg:flex-row sm:flex-col gap-6 text-white font-body lg:relative sm:absolute sm:top-[120%] text-center left-[50%] -translate-x-[50%] lg:text-md sm:text-xl sm:bg-cyan/30 backdrop-blur-lg lg:bg-black sm:w-full py-4">
-      {links.map((link, index) => {
-        return (
-          <li key={index} className="group">
-            <Link
-              spy={true}
-              smooth={true}
-              duration={500}
-              offset={-130}
-              to={link.section}
-              className="cursor-pointer text-white hover:text-cyan transition-all duration-500"
-            >
-              {link.link}
-            </Link>
-            <div className="mx-auto bg-cyan w-0 group-hover:w-full h-[1px] transition-all duration-500"></div>
-          </li>
-        );
-      })}
+    <ul className="flex flex-col sm:flex-col lg:flex-row gap-6 text-white font-semibold text-lg">
+      <li onClick={() => scrollToSection("about")} className="cursor-pointer hover:text-cyan transition-all">About</li>
+      <li onClick={() => scrollToSection("skills")} className="cursor-pointer hover:text-cyan transition-all">Skills</li>
+      <li onClick={() => scrollToSection("projects")} className="cursor-pointer hover:text-cyan transition-all">Projects</li>
+      <li onClick={() => scrollToSection("contact")} className="cursor-pointer hover:text-cyan transition-all">Contact</li>
     </ul>
   );
 };
