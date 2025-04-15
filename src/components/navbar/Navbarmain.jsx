@@ -1,61 +1,82 @@
-import React, { useState } from "react";
-import NavbarLogo from "./NavbarLogo";
-import NavbarLinks from "./NavbarLinks";
-import NavbarBtn from "./NavbarBtn";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { motion, AnimatePresence } from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbarmain = () => {
-  const [menuOpen, setMenuOpen] = useState(false); // Local state for controlling mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenuState = () => {
-    setMenuOpen(!menuOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const closeMenu = () => {
-    setMenuOpen(false);
+    setIsMenuOpen(false);
   };
 
+  const navLinks = [
+    { name: "About", to: "#about" },
+    { name: "Skills", to: "#skills" },
+    { name: "Contact", to: "#contact" },
+  ];
+
   return (
-    <nav className="max-w-[1300px] mx-auto w-full px-4 fixed left-[50%] -translate-x-[50%] z-20 flex gap-4 mt-2">
-      <div className="flex justify-between w-full max-w-[1200px] mx-auto bg-black items-center p-6 rounded-r-full rounded-l-full border-orange border-[0.5px]">
-        <NavbarLogo />
-        
-        {/* Navbar Links aligned to the right with proper spacing for large screens */}
-        <div className="hidden lg:flex ml-auto gap-6"> {/* Adding gap to space out the links */}
-          <NavbarLinks />
-        </div>
-        
-        <NavbarBtn />
-      </div>
+    <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
+      <div className="max-w-[1200px] mx-auto px-4 flex justify-between items-center h-20">
+        <h1 className="text-xl font-bold text-orange">Faisal</h1>
 
-      {/* Hamburger button */}
-      <div className="flex lg:hidden sm:block p-6 bg-black items-center justify-center rounded-full border-orange border-[0.5px]">
-        <button
-          className={`text-2xl p-3 border border-orange rounded-full text-white transition-transform duration-300 ${
-            menuOpen ? "rotate-90" : ""
-          }`}
-          onClick={toggleMenuState} // Toggle mobile menu on click
-        >
-          <GiHamburgerMenu />
-        </button>
-      </div>
-
-      {/* Animated Mobile Menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="absolute top-[80px] right-4 sm:right-0 sm:left-0 bg-black border border-orange rounded-xl shadow-lg z-50 lg:hidden px-6 py-4"
+        {/* Large screen nav */}
+        <ul className="hidden md:flex items-center space-x-8 mr-4">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <a
+                href={link.to}
+                className="text-gray-700 hover:text-orange transition"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+          <a
+            href="#contact"
+            className="ml-4 bg-orange text-white py-2 px-5 rounded-full hover:bg-dark-orange transition"
           >
-            {/* Pass closeMenu to NavbarLinks to close menu when a link is clicked */}
-            <NavbarLinks onLinkClick={closeMenu} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+            Hire Me
+          </a>
+        </ul>
+
+        {/* Mobile toggler */}
+        <div className="md:hidden">
+          <button
+            className="text-2xl text-orange focus:outline-none"
+            onClick={toggleMenu}
+          >
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <ul className="md:hidden flex flex-col items-center space-y-6 py-6 bg-white shadow-md">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <a
+                href={link.to}
+                onClick={closeMenu}
+                className="text-gray-700 text-lg hover:text-orange transition"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+          <a
+            href="#contact"
+            onClick={closeMenu}
+            className="bg-orange text-white py-2 px-5 rounded-full hover:bg-dark-orange transition"
+          >
+            Hire Me
+          </a>
+        </ul>
+      )}
     </nav>
   );
 };
