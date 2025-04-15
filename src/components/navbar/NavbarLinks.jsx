@@ -13,7 +13,6 @@ const NavbarLinks = ({ onLinkClick }) => {
     <ul className="flex flex-col sm:flex-col lg:flex-row gap-6 text-white font-semibold text-lg">
       <li onClick={() => scrollToSection("about")} className="cursor-pointer hover:text-cyan transition-all">About</li>
       <li onClick={() => scrollToSection("skills")} className="cursor-pointer hover:text-cyan transition-all">Skills</li>
-      <li onClick={() => scrollToSection("projects")} className="cursor-pointer hover:text-cyan transition-all">Projects</li>
       <li onClick={() => scrollToSection("contact")} className="cursor-pointer hover:text-cyan transition-all">Contact</li>
     </ul>
   );
