@@ -7,3 +7,20 @@
 body {
     @apply bg-darkBrown;
   }
+
+/* index.css or App.css (depending on where your global styles are defined) */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal overflow */
+  width: 100%;
+}
+
+body {
+  font-family: 'sans-serif'; /* Or your custom font */
+  background-color: #f9fafb; /* Tailwind's bg-light */
+}
+
+main {
+  overflow-x: hidden; /* Prevents horizontal scroll on the main container */
+}
