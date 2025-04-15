@@ -1,12 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const AboutMeImage = () => {
   return (
     <div className="h-[500px] w-[300px] relative">
       <div className="h-[500px] w-[300px] rounded-[100px] absolute overflow-hidden">
         <img
-          src={'${import.meta.env.BASE_URL}/images/about-me.jpg'}
-          alt="About Me Image"
+          src={`${import.meta.env.BASE_URL}images/about-me.jpg`}
           className="h-full w-auto object-cover"
         />
       </div>
