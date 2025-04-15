@@ -5,7 +5,6 @@ import NavbarBtn from "./NavbarBtn";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { toggleMenu } from "../../state/menuSlice"; // Only if you're using Redux for other parts of your app
 
 const Navbarmain = () => {
   const [menuOpen, setMenuOpen] = useState(false); // Local state for controlling mobile menu
