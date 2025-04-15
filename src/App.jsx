@@ -2,7 +2,6 @@ import "./App.css";
 import AboutMeMain from "./components/aboutMeSection/AboutMeMain";
 import ContactMeMain from "./components/contactMeSection/ContactMeMain";
 import ExperienceMain from "./components/experienceSection/ExperienceMain";
-import HelperSection from "./components/HelperSection";
 import { HeroMain } from "./components/heroSection/HeroMain";
 import SubHeroSection from "./components/heroSection/SubHeroSection";
 import Navbarmain from "./components/navbar/Navbarmain";
@@ -27,7 +26,6 @@ function App() {
         <ExperienceMain />
         <ContactMeMain />
         <FooterMain />
-        <HelperSection />
       </main>
     </HashRouter>
   );
