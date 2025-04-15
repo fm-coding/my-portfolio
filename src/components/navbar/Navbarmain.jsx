@@ -4,11 +4,13 @@ import NavbarLinks from "./NavbarLinks";
 import NavbarBtn from "./NavbarBtn";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../../state/menuSlice"; // Only if you're using Redux for other parts of your app
 
 const Navbarmain = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // Local state for controlling mobile menu
 
-  const toggleMenu = () => {
+  const toggleMenuState = () => {
     setMenuOpen(!menuOpen);
   };
 
@@ -35,7 +37,7 @@ const Navbarmain = () => {
           className={`text-2xl p-3 border border-orange rounded-full text-white transition-transform duration-300 ${
             menuOpen ? "rotate-90" : ""
           }`}
-          onClick={toggleMenu}
+          onClick={toggleMenuState} // Toggle mobile menu on click
         >
           <GiHamburgerMenu />
         </button>
@@ -50,6 +52,7 @@ const Navbarmain = () => {
             exit={{ height: 0, opacity: 0 }}
             className="absolute top-[80px] right-4 sm:right-0 sm:left-0 bg-black border border-orange rounded-xl shadow-lg z-50 lg:hidden px-6 py-4"
           >
+            {/* Pass closeMenu to NavbarLinks to close menu when a link is clicked */}
             <NavbarLinks onLinkClick={closeMenu} />
           </motion.div>
         )}
