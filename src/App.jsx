@@ -11,21 +11,26 @@ import SubSkills from "./components/skillsSection/SubSkills";
 import HeroGradient from "./components/heroSection/HeroGradient";
 import FooterMain from "./components/footer/FooterMain";
 
-function App() {
+import { HashRouter } from "react-router-dom";
 
-  return (<main className="font-body">
-    <Navbarmain/>
-    <HeroMain/>
-    <HeroGradient/>
-    <SubHeroSection/>
-    <AboutMeMain/>
-    <SkillsMain/>
-    <SubSkills/>
-    <ExperienceMain/>
-    <ContactMeMain/>
-    <FooterMain/>
-    </main>
-);
+function App() {
+  return (
+    <HashRouter>
+      <main className="font-body">
+        <Navbarmain />
+        <HeroMain />
+        <HeroGradient />
+        <SubHeroSection />
+        <AboutMeMain />
+        <SkillsMain />
+        <SubSkills />
+        <ExperienceMain />
+        <ContactMeMain />
+        <FooterMain />
+        <HelperSection />
+      </main>
+    </HashRouter>
+  );
 }
 
 export default App;
