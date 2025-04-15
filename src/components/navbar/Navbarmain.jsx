@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import NavbarLogo from "./NavbarLogo";
 
 const Navbarmain = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,9 +20,9 @@ const Navbarmain = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
+    <nav className="fixed top-0 w-full z-50 bg-[#0f172a] shadow-md">
       <div className="max-w-[1200px] mx-auto px-4 flex justify-between items-center h-20">
-        <h1 className="text-xl font-bold text-orange">Faisal</h1>
+        <NavbarLogo />
 
         {/* Large screen nav */}
         <ul className="hidden md:flex items-center space-x-8 mr-4">
@@ -29,7 +30,7 @@ const Navbarmain = () => {
             <li key={link.name}>
               <a
                 href={link.to}
-                className="text-gray-700 hover:text-orange transition"
+                className="text-white hover:text-orange transition"
               >
                 {link.name}
               </a>
@@ -56,13 +57,13 @@ const Navbarmain = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <ul className="md:hidden flex flex-col items-center space-y-6 py-6 bg-white shadow-md">
+        <ul className="md:hidden flex flex-col items-center space-y-6 py-6 bg-[#0f172a] shadow-md">
           {navLinks.map((link) => (
             <li key={link.name}>
               <a
                 href={link.to}
                 onClick={closeMenu}
-                className="text-gray-700 text-lg hover:text-orange transition"
+                className="text-white text-lg hover:text-orange transition"
               >
                 {link.name}
               </a>
