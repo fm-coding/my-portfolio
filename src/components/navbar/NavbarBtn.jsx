@@ -5,9 +5,9 @@ function NavbarBtn({ onLinkClick }) {
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
+      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    if (onLinkClick) onLinkClick(); // close mobile menu if triggered from mobile
+    if (onLinkClick) onLinkClick(); // close menu if on mobile
   };
 
   return (
