@@ -1,12 +1,13 @@
 import React from "react";
 import { LuArrowDownRight } from "react-icons/lu";
 
-function NavbarBtn() {
+function NavbarBtn({ onLinkClick }) {
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
+    if (onLinkClick) onLinkClick(); // close mobile menu if triggered from mobile
   };
 
   return (
